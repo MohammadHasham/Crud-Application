@@ -28,7 +28,7 @@
                 <table class="table table-striped">
                    
 
-                    @foreach ($data as $id => $employee)
+                    @foreach ($employee as $id => $employee)
                     <tr valign="middle">
                     
                         <td>
@@ -38,15 +38,15 @@
                             <img src="{{ url('assets/images/no.png') }}" alt="" width="100" height="100">
                             @endif
                         </td>
-                        <td>{{ $employee->name }}</td>
+                        <td><strong>{{ $employee->name }}<strong></td>
                     <tr valign="middle">
 
-                        <td>Email</td>
+                        <td><strong>Email</strong></td>
                         <td>{{ $employee->email }}</td>
                      </tr>
                      <tr valign="middle">
 
-                        <td>Address</td>
+                        <td><strong>Address</strong></td>
                         <td>{{ $employee->address }}</td>
                        
 

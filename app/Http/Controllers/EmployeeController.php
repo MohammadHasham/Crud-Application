@@ -52,8 +52,8 @@ class EmployeeController extends Controller
 
     public function show(string $employees) {
 
-        $employee = DB::table('employees')->where('id',$employees)->get();
-        return view('employee.show',['data'=> $employee]);
+        $employee = Employee::where('id',$employees)->get();
+        return view('employee.show',['employee'=> $employee]);
     }
 
     public function edit(Employee $employee) {
