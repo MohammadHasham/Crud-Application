@@ -6,7 +6,7 @@ use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\DB;
+
 
 class EmployeeController extends Controller
 {
@@ -50,7 +50,7 @@ class EmployeeController extends Controller
         }
     }
 
-    public function show(string $employees) {
+    public function show($employees) {
 
         $employee = Employee::where('id',$employees)->get();
         return view('employee.show',['employee'=> $employee]);
