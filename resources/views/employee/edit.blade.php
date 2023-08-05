@@ -70,8 +70,13 @@
             <button class="btn btn-primary my-3">Update Employee</button>
 
         </form>
+        <footer id="footer" style="margin-top: 20px;">
+        
+            <p>© Copyright MABA</p>
+        
+        </footer>
     </div>
 
-    
+     
 </body>
 </html>

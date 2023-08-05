@@ -6,6 +6,7 @@ use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
@@ -47,6 +48,12 @@ class EmployeeController extends Controller
            
             return redirect()->route('employees.create')->withErrors($validator)->withInput();
         }
+    }
+
+    public function show(string $employees) {
+
+        $employee = DB::table('employees')->where('id',$employees)->get();
+        return view('employee.show',['data'=> $employee]);
     }
 
     public function edit(Employee $employee) {

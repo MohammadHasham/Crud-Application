@@ -38,7 +38,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Address</th>
-                        <th width="150">Action</th>
+                        <th width="200">Action</th>
                     </tr>
 
                     @if($employees->isNotEmpty())
@@ -47,15 +47,16 @@
                         <td>{{ $employee->id }}</td>
                         <td>
                             @if($employee->image != '' && file_exists(public_path().'/uploads/employees/'.$employee->image))
-                            <img src="{{ url('uploads/employees/'.$employee->image) }}" alt="" width="40" height="40" class="rounded-circle">
+                            <img src="{{ url('uploads/employees/'.$employee->image) }}" alt="" width="50" height="50" class="rounded-circle">
                             @else
-                            <img src="{{ url('assets/images/no.png') }}" alt="" width="40" height="40" class="rounded-circle">
+                            <img src="{{ url('assets/images/no.png') }}" alt="" width="50" height="50" class="rounded-circle">
                             @endif
                         </td>
                         <td>{{ $employee->name }}</td>
                         <td>{{ $employee->email }}</td>
                         <td>{{ $employee->address }}</td>
                         <td>
+                            <a href="{{ route('employees.show',$employee->id) }}" class="btn btn-primary btn-sm">View</a>
                             <a href="{{ route('employees.edit',$employee->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             <a href="#" onclick="deleteEmployee({{ $employee->id }})" class="btn btn-danger btn-sm">Delete</a>
 
@@ -80,13 +81,13 @@
         <div class="mt-3">
             {{ $employees->links() }}
         </div>
-
-    </div>
-    <footer id="footer">
+        <footer id="footer" style="margin-top: 20px;">
         
-        <p>© Copyright MABA</p>
-    
-      </footer>
+            <p>© Copyright MABA</p>
+        
+        </footer>
+    </div>
+   
     
     
 </body>

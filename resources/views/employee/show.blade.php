@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First Laravel Project</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+</head>
+<body>
+
+    <div class="bg-dark py-3">
+        <div class="container">
+            <div class="h4 text-white">Crud Application</div>
+        </div>
+    </div>
+
+    <div class="container ">
+        <div class="d-flex justify-content-between py-3">
+            <div class="h4">Employee Detail</div>
+            <div>
+                <a href="{{ route('employees.index') }}" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-lg">
+            <div class="card-body">
+                <table class="table table-striped">
+                   
+
+                    @foreach ($data as $id => $employee)
+                    <tr valign="middle">
+                    
+                        <td>
+                            @if($employee->image != '' && file_exists(public_path().'/uploads/employees/'.$employee->image))
+                            <img src="{{ url('uploads/employees/'.$employee->image) }}" alt="" width="100" height="100">
+                            @else
+                            <img src="{{ url('assets/images/no.png') }}" alt="" width="100" height="100">
+                            @endif
+                        </td>
+                        <td>{{ $employee->name }}</td>
+                    <tr valign="middle">
+
+                        <td>Email</td>
+                        <td>{{ $employee->email }}</td>
+                     </tr>
+                     <tr valign="middle">
+
+                        <td>Address</td>
+                        <td>{{ $employee->address }}</td>
+                       
+
+                    </tr>
+                    @endforeach   
+                </table>
+            </div>
+        </div>
+
+        <footer id="footer" style="margin-top: 20px;">
+        
+            <p>© Copyright MABA</p>
+        
+        </footer>   
+    </div>    
+</body>
+</html>
+

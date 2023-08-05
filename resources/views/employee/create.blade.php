@@ -63,8 +63,11 @@
             <button class="btn btn-primary mt-3">Save Employee</button>
 
         </form>
-    </div>
-
-    
+        <footer id="footer" style="margin-top: 20px;">
+        
+            <p>© Copyright MABA</p>
+        
+         </footer>
+    </div>  
 </body>
 </html>
