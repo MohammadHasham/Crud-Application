@@ -24,7 +24,7 @@ class EmployeeController extends Controller
     public function store(Request $request) {
         $validator = Validator::make($request->all(),[
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|unique:employees,email',
             'image' => 'sometimes|image:gif,png,jpeg,jpg'
         ]);
 
@@ -65,7 +65,7 @@ class EmployeeController extends Controller
 
         $validator = Validator::make($request->all(),[
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|unique:employees,email',
             'image' => 'sometimes|image:gif,png,jpeg,jpg'
         ]);
 
