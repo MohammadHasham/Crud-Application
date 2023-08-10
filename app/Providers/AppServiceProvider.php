@@ -12,15 +12,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        Paginator::useBootstrapFive();
     }
 
     /**
      * Bootstrap any application services.
      */
-
-    public function boot()
-    {
-        Paginator::useBootstrapFive();
-    }
 }

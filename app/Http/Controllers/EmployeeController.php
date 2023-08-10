@@ -12,7 +12,7 @@ class EmployeeController extends Controller
 {
     public function index() {
 
-        $employees = Employee::orderBy('id','DESC')->paginate(5);
+        $employees = Employee::orderBy('id','ASC')->paginate(5);
 
         return view('employee.list',['employees' => $employees]);
     }
@@ -65,7 +65,7 @@ class EmployeeController extends Controller
 
         $validator = Validator::make($request->all(),[
             'name' => 'required',
-            'email' => 'required|email|unique:employees,email',
+            'email' => 'required|email',
             'image' => 'sometimes|image:gif,png,jpeg,jpg'
         ]);
 
