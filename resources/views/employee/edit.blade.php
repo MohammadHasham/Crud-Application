@@ -46,8 +46,53 @@
 
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
-                        <textarea name="address" id="address" cols="30" rows="4" placeholder="Enter Address" class="form-control">{{ old('address',$employee->address) }}</textarea>
+                        <input name="address" id="address" cols="30" rows="4" placeholder="Enter Address" class="form-control" value="{{ old('address',$employee->address) }}">
                     </div>
+
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input name="city" id="city" cols="30" rows="4" placeholder="Enter City" class="form-control" value="{{ old('city',$employee->city) }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="state" class="form-label">State</label>
+                        <input name="state" id="state" cols="30" rows="4" placeholder="Enter State" class="form-control" value="{{ old('state',$employee->state) }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="country" id="country" cols="30" rows="4" placeholder="Enter Country" class="form-control" value="{{ old('country',$employee->country) }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label><br>
+                        <input type="radio" name="gender" value="Male" value="{{ old('gender',$employee->gender) }}"> Male
+                        <input type="radio" name="gender" value="Female" value="{{ old('gender',$employee->gender) }}"> Female
+                        <input type="radio" name="gender" value="Other" value="{{ old('gender',$employee->gender) }}"> Other
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="dob">D.O.B</label>
+                        <input type="date" id="dob" name="dob" value="{{ old('dob',$employee->dob) }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control @error('password') is-invalid @enderror"> 
+                        @error('password')
+                        <p class="invalid-feedback">{{ $message }}</p>    
+                         @enderror
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Confirm Password</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" class="form-control @error('password_confirmation') is-invalid @enderror"> 
+                        @error('password_confirmation')
+                        <p class="invalid-feedback">{{ $message }}</p>    
+                        @enderror
+                    </div>
+
 
                     <div class="mb-3">
                         <label for="image" class="form-label"></label>
@@ -56,11 +101,11 @@
                         @error('image')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror 
-                        
+                      
                         <div class="pt-3">
                             @if($employee->image != '' && file_exists(public_path().'/uploads/employees/'.$employee->image))
                             <img src="{{ url('uploads/employees/'.$employee->image) }}" alt="" width="100" height="100">
-                        @endif
+                            @endif
                         </div>
                     </div>
                 

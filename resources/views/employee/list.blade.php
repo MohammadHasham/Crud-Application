@@ -38,6 +38,12 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Country</th>
+                        <th>D.O.B</th>
+                        <th>Gender</th>
+
                         <th width="200">Action</th>
                     </tr>
 
@@ -55,6 +61,11 @@
                         <td>{{ $employee->name }}</td>
                         <td>{{ $employee->email }}</td>
                         <td>{{ $employee->address }}</td>
+                        <td>{{ $employee->city }}</td>
+                        <td>{{ $employee->state }}</td>
+                        <td>{{ $employee->country }}</td>
+                        <td>{{ $employee->dob }}</td>
+                        <td>{{ $employee->gender }}</td>
                         <td>
                             <a href="{{ route('employees.show',$employee->id) }}" class="btn btn-info btn-sm">View</a>
                             <a href="{{ route('employees.edit',$employee->id) }}" class="btn btn-primary btn-sm">Update</a>

@@ -25,7 +25,10 @@ class EmployeeController extends Controller
         $validator = Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required|email|unique:employees,email',
-            'image' => 'sometimes|image:gif,png,jpeg,jpg'
+            'image' => 'sometimes|image:gif,png,jpeg,jpg',
+            'password'=> 'required|confirmed',
+            'password_confirmation'=> 'required'
+
         ]);
 
         if ( $validator->passes() ) {
@@ -66,7 +69,9 @@ class EmployeeController extends Controller
         $validator = Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required|email',
-            'image' => 'sometimes|image:gif,png,jpeg,jpg'
+            'image' => 'sometimes|image:gif,png,jpeg,jpg',
+            'password'=> 'required|confirmed',
+            'password_confirmation'=> 'required'
         ]);
 
         if ( $validator->passes() ) {

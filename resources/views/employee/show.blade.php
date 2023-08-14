@@ -39,19 +39,61 @@
                             @endif
                         </td>
                         <td><strong>{{ $employee->name }}<strong></td>
+
+                    </tr>
+
                     <tr valign="middle">
 
                         <td><strong>Email</strong></td>
                         <td>{{ $employee->email }}</td>
-                     </tr>
-                     <tr valign="middle">
+
+                    </tr> 
+
+                    <tr valign="middle">
 
                         <td><strong>Address</strong></td>
                         <td>{{ $employee->address }}</td>
-                       
 
                     </tr>
-                    @endforeach   
+
+                    <tr valign="middle">
+
+                        <td><strong>City</strong></td>
+                        <td>{{ $employee->city }}</td>
+
+                    </tr>
+
+                    <tr valign="middle">
+
+                        <td><strong>State</strong></td>
+                        <td>{{ $employee->state }}</td>
+
+                    </tr>
+
+                    <tr valign="middle">
+
+                        <td><strong>Country</strong></td>
+                        <td>{{ $employee->country }}</td>
+
+                    </tr>
+
+                    <tr valign="middle">
+
+                        <td><strong>D.O.B</strong></td>
+                        <td>{{ $employee->dob }}</td>
+
+                    </tr>
+
+                    <tr valign="middle">
+
+                        <td><strong>Gender</strong></td>
+                        <td>{{ $employee->gender }}</td>
+
+                    </tr>
+
+
+                    @endforeach 
+
                 </table>
             </div>
         </div>
