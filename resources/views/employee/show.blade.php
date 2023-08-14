@@ -80,7 +80,7 @@
                     <tr valign="middle">
 
                         <td><strong>D.O.B</strong></td>
-                        <td>{{ $employee->dob }}</td>
+                        <td>{{get_formatted_date($employee->dob, "d-M-Y")}}</td>
 
                     </tr>
 

@@ -64,7 +64,7 @@
                         <td>{{ $employee->city }}</td>
                         <td>{{ $employee->state }}</td>
                         <td>{{ $employee->country }}</td>
-                        <td>{{ $employee->dob }}</td>
+                        <td>{{ get_formatted_date($employee->dob, "d-M-Y")}}</td>
                         <td>{{ $employee->gender }}</td>
                         <td>
                             <a href="{{ route('employees.show',$employee->id) }}" class="btn btn-info btn-sm">View</a>
