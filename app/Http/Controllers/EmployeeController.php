@@ -27,7 +27,8 @@ class EmployeeController extends Controller
             'email' => 'required|email|unique:employees,email',
             'image' => 'sometimes|image:gif,png,jpeg,jpg',
             'password'=> 'required|confirmed',
-            'password_confirmation'=> 'required'
+            'password_confirmation'=> 'required',
+            'dob'=> 'required'
 
         ]);
 
@@ -71,7 +72,8 @@ class EmployeeController extends Controller
             'email' => 'required|email',
             'image' => 'sometimes|image:gif,png,jpeg,jpg',
             'password'=> 'required|confirmed',
-            'password_confirmation'=> 'required'
+            'password_confirmation'=> 'required',
+            'dob'=> 'required'
         ]);
 
         if ( $validator->passes() ) {

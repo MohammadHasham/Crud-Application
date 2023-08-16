@@ -17,7 +17,7 @@
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">Employees</div>
+            <div class="h4">Registration Form</div>
             <div>
                 <a href="{{ route('employees.index') }}" class="btn btn-primary">Back</a>
             </div>
@@ -73,7 +73,10 @@
 
                     <div class="mb-3">
                         <label for="dob">D.O.B</label>
-                        <input type="date" id="dob" name="dob" value="{{ old('dob') }}">
+                        <input type="date" id="dob" name="dob" class="form-control @error('dob') is-invalid @enderror" value="{{ old('dob') }}">
+                        @error('dob')
+                        <p class="invalid-feedback">{{ $message }}</p>    
+                        @enderror
                     </div>
 
                     <div class="mb-3">
@@ -104,7 +107,7 @@
                 </div>
             </div>
 
-            <button class="btn btn-primary mt-3">Save Employee</button>
+            <button class="btn btn-primary mt-3">Save Customer</button>
 
         </form>
         <footer id="footer" style="margin-top: 20px;">

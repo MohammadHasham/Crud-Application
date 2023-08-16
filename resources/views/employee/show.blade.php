@@ -17,7 +17,7 @@
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">Employee Detail</div>
+            <div class="h4">Customer Detail</div>
             <div>
                 <a href="{{ route('employees.index') }}" class="btn btn-primary">Back</a>
             </div>

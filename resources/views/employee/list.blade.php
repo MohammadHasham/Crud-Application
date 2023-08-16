@@ -17,9 +17,9 @@
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">Employees</div>
+            <div class="h4">Customer List</div>
             <div>
-                <a href="{{ route('employees.create') }}" class="btn btn-primary">Add Employee</a>
+                <a href="{{ route('employees.create') }}" class="btn btn-primary">Register</a>
             </div>
         </div>
 

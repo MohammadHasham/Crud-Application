@@ -17,7 +17,7 @@
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">Edit Employee</div>
+            <div class="h4">Edit Customer Details</div>
             <div>
                 <a href="{{ route('employees.index') }}" class="btn btn-primary">Back</a>
             </div>
@@ -66,15 +66,18 @@
 
                     <div class="mb-3">
                         <label for="gender" class="form-label">Gender</label><br>
-                        <input type="radio" name="gender" value="Male" value="{{ old('gender',$employee->gender) }}"> Male
-                        <input type="radio" name="gender" value="Female" value="{{ old('gender',$employee->gender) }}"> Female
-                        <input type="radio" name="gender" value="Other" value="{{ old('gender',$employee->gender) }}"> Other
+                        <input type="radio" name="gender" value="Male"  value="Male"{{$employee->gender =="Male" ? "checked" : "" }}> Male
+                        <input type="radio" name="gender" value="Female" value="Female"{{$employee->gender =="Female" ? "checked" : "" }}> Female
+                        <input type="radio" name="gender" value="Other"  value="Other"{{$employee->gender =="Other" ? "checked" : "" }}> Other
 
                     </div>
 
                     <div class="mb-3">
                         <label for="dob">D.O.B</label>
-                        <input type="date" id="dob" name="dob" value="{{ old('dob',$employee->dob) }}">
+                        <input type="date" id="dob" name="dob" class="form-control @error('dob') is-invalid @enderror" value="{{ old('dob',$employee->dob) }}">
+                        @error('dob')
+                        <p class="invalid-feedback">{{ $message }}</p>    
+                    @enderror
                     </div>
 
                     <div class="mb-3">
@@ -112,7 +115,7 @@
                 </div>
             </div>
 
-            <button class="btn btn-primary my-3">Update Employee</button>
+            <button class="btn btn-primary my-3">Update Customer</button>
 
         </form>
         <footer id="footer" style="margin-top: 20px;">
