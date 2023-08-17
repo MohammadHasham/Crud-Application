@@ -45,7 +45,7 @@ class EmployeeController extends Controller
                 $employee->save();
             }
             
-            return redirect()->route('employees.index')->with('success','Employee added successfully.');
+            return redirect()->route('employees.index')->with('success','Customer added successfully.');
 
 
         } else {
@@ -95,7 +95,7 @@ class EmployeeController extends Controller
                 File::delete(public_path().'/uploads/employees/'.$oldImage);
             }            
 
-            return redirect()->route('employees.index')->with('success','Employee updated successfully.');
+            return redirect()->route('employees.index')->with('success','Customer updated successfully.');
 
 
         } else {
@@ -108,7 +108,7 @@ class EmployeeController extends Controller
                       
         // File::delete(public_path().'/uploads/employees/'.$employee->image);
         $employee->delete();        
-        return redirect()->route('employees.index')->with('success','Employee deleted successfully.');
+        return redirect()->route('employees.index')->with('success','Customer Moved to trash successfully.');
     }
 
     public function trash() {
@@ -116,6 +116,20 @@ class EmployeeController extends Controller
         $employees = Employee::onlyTrashed()->get();
         $data = compact('employees');
         return view('employee.trash')->with($data);
+    }
+
+    public function restore($id) {
+
+        $employee = Employee::withTrashed()->find($id);
+        $employee -> restore();
+        return redirect('/trash')->with('success','Customer restore successfully.');
+    }
+
+    public function forceDelete($id) {
+
+        $employee = Employee::withTrashed()->find($id);
+        $employee -> forceDelete();
+        return redirect('/trash')->with('success','Customer deleted permanently.');
     }
 
 }

@@ -67,8 +67,8 @@
                         <td>{{ get_formatted_date($employee->dob, "d-M-Y")}}</td>
                         <td>{{ $employee->gender }}</td>
                         <td>
-                            <a href="{{ route('employees.edit',$employee->id) }}" class="btn btn-primary btn-sm">Restore</a>
-                            <a href="{{ route('employees.edit',$employee->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="{{ route('employees.restore',['id' => $employee->id]) }}" class="btn btn-success btn-sm">Restore</a>
+                            <a href="{{ route('employees.forcedelete',['id' => $employee->id]) }}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
                     @endforeach

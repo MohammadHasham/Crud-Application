@@ -25,3 +25,5 @@ Route::put('/employees/{employee}',[EmployeeController::class,'update'])->name('
 Route::delete('/employees/{employee}',[EmployeeController::class,'destroy'])->name('employees.destroy');
 Route::get('/employees/{employee}',[EmployeeController::class,'show'])->name('employees.show');
 Route::get('/trash',[EmployeeController::class,'trash'])->name('employees.trash');
+Route::get('/employees/restore/{id}',[EmployeeController::class,'restore'])->name('employees.restore');
+Route::get('/employees/force-delete/{id}',[EmployeeController::class,'forceDelete'])->name('employees.forcedelete');
