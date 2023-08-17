@@ -24,3 +24,4 @@ Route::get('/employees/{employee}/edit',[EmployeeController::class,'edit'])->nam
 Route::put('/employees/{employee}',[EmployeeController::class,'update'])->name('employees.update');
 Route::delete('/employees/{employee}',[EmployeeController::class,'destroy'])->name('employees.destroy');
 Route::get('/employees/{employee}',[EmployeeController::class,'show'])->name('employees.show');
+Route::get('/trash',[EmployeeController::class,'trash'])->name('employees.trash');

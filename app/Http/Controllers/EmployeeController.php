@@ -106,8 +106,16 @@ class EmployeeController extends Controller
 
     public function destroy(Employee $employee, Request $request) {
                       
-        File::delete(public_path().'/uploads/employees/'.$employee->image);
+        // File::delete(public_path().'/uploads/employees/'.$employee->image);
         $employee->delete();        
         return redirect()->route('employees.index')->with('success','Employee deleted successfully.');
     }
+
+    public function trash() {
+
+        $employees = Employee::onlyTrashed()->get();
+        $data = compact('employees');
+        return view('employee.trash')->with($data);
+    }
+
 }

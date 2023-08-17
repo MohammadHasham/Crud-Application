@@ -20,6 +20,8 @@
             <div class="h4">Customer List</div>
             <div>
                 <a href="{{ route('employees.create') }}" class="btn btn-primary">Register</a>
+                <a href="{{ route('employees.trash') }}" class="btn btn-danger">Go To Trash Bin</a>
+
             </div>
         </div>
 
@@ -69,7 +71,7 @@
                         <td>
                             <a href="{{ route('employees.show',$employee->id) }}" class="btn btn-info btn-sm">View</a>
                             <a href="{{ route('employees.edit',$employee->id) }}" class="btn btn-primary btn-sm">Update</a>
-                            <a href="#" onclick="deleteEmployee({{ $employee->id }})" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="#" onclick="deleteEmployee({{ $employee->id }})" class="btn btn-danger btn-sm">Trash</a>
 
                             <form id="employee-edit-action-{{ $employee->id }}" action="{{ route('employees.destroy',$employee->id) }}" method="post">
                                 @csrf
