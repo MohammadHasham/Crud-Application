@@ -26,11 +26,11 @@
         <div class="card border-0 shadow-lg">
             <div class="card-body">
                 <table class="table table-striped">
-                   
+
 
                     @foreach ($employee as $id => $employee)
                     <tr valign="middle">
-                    
+
                         <td>
                             @if($employee->image != '' && file_exists(public_path().'/uploads/employees/'.$employee->image))
                             <img src="{{ url('uploads/employees/'.$employee->image) }}" alt="" width="100" height="100">
@@ -47,7 +47,7 @@
                         <td><strong>Email</strong></td>
                         <td>{{ $employee->email }}</td>
 
-                    </tr> 
+                    </tr>
 
                     <tr valign="middle">
 
@@ -80,7 +80,7 @@
                     <tr valign="middle">
 
                         <td><strong>D.O.B</strong></td>
-                        <td>{{get_formatted_date($employee->dob, "d-M-Y")}}</td>
+                        <td>{{get_formatted_date($employee->dob, "d-M-Y, l")}}</td>
 
                     </tr>
 
@@ -92,18 +92,18 @@
                     </tr>
 
 
-                    @endforeach 
+                    @endforeach
 
                 </table>
             </div>
         </div>
 
         <footer id="footer" style="margin-top: 20px;">
-        
+
             <p>© Copyright MABA</p>
-        
-        </footer>   
-    </div>    
+
+        </footer>
+    </div>
 </body>
 </html>
 

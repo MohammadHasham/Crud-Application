@@ -10,9 +10,18 @@ use Illuminate\Support\Facades\File;
 
 class EmployeeController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
 
-        $employees = Employee::orderBy('id','ASC')->paginate(5);
+        $search = $request['search'] ?? "";
+        if($search !="") {
+
+            $employees = Employee::where('name', 'LIKE', "$search%")->orWhere('email', 'LIKE', "%$search")->orderBy('id','ASC')->paginate(10);
+
+        } else {
+
+        $employees = Employee::orderBy('id','ASC')->paginate(10);
+
+        }
 
         return view('employee.list',['employees' => $employees]);
     }
@@ -36,7 +45,7 @@ class EmployeeController extends Controller
 
             $employee = Employee::create($request->post());
 
-            
+
             if ($request->image) {
                 $ext = $request->image->getClientOriginalExtension();
                 $newFileName = time().'.'.$ext;
@@ -44,12 +53,12 @@ class EmployeeController extends Controller
                 $employee->image = $newFileName;
                 $employee->save();
             }
-            
+
             return redirect()->route('employees.index')->with('success','Customer added successfully.');
 
 
         } else {
-           
+
             return redirect()->route('employees.create')->withErrors($validator)->withInput();
         }
     }
@@ -61,7 +70,7 @@ class EmployeeController extends Controller
     }
 
     public function edit(Employee $employee) {
-            
+
         return view('employee.edit',['employee' => $employee]);
     }
 
@@ -77,43 +86,43 @@ class EmployeeController extends Controller
         ]);
 
         if ( $validator->passes() ) {
-          
+
 
             $employee->fill($request->post())->save();
 
-            
+
             if ($request->image) {
                 $oldImage = $employee->image;
 
                 $ext = $request->image->getClientOriginalExtension();
                 $newFileName = time().'.'.$ext;
                 $request->image->move(public_path().'/uploads/employees/',$newFileName);
-                
+
                 $employee->image = $newFileName;
                 $employee->save();
 
                 File::delete(public_path().'/uploads/employees/'.$oldImage);
-            }            
+            }
 
             return redirect()->route('employees.index')->with('success','Customer updated successfully.');
 
 
         } else {
-         
+
             return redirect()->route('employees.edit',$employee->id)->withErrors($validator)->withInput();
         }
     }
 
     public function destroy(Employee $employee, Request $request) {
-                      
+
         // File::delete(public_path().'/uploads/employees/'.$employee->image);
-        $employee->delete();        
+        $employee->delete();
         return redirect()->route('employees.index')->with('success','Customer Moved to trash successfully.');
     }
 
     public function trash() {
 
-        $employees = Employee::onlyTrashed()->get();
+        $employees = Employee::onlyTrashed()->orderBy('id','ASC')->paginate(10);
         $data = compact('employees');
         return view('employee.trash')->with($data);
     }

@@ -16,4 +16,29 @@ class employee extends Model
     function notes() {
         return $this->hasMany(Employee::class);
     }
+
+    public function setNameAttribute($value) {
+        $this->attributes['name'] = ucwords($value);
+    }
+
+    public function setEmailAttribute($value) {
+        $this->attributes['email'] = strtolower($value);
+    }
+
+    public function setAddressAttribute($value) {
+        $this->attributes['address'] = ucwords($value);
+    }
+
+    public function setCityAttribute($value) {
+        $this->attributes['city'] = ucwords($value);
+    }
+
+    public function setStateAttribute($value) {
+        $this->attributes['state'] = ucwords($value);
+    }
+
+    public function setCountryAttribute($value) {
+        $this->attributes['country'] = ucwords($value);
+    }
 }
+

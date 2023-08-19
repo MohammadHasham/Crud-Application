@@ -17,11 +17,17 @@
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">Customer List</div>
+            <style>a{text-decoration: none; color: inherit; }</style>
+            <div class="h4"> <a href="{{ route('employees.index') }}">Customer List</a></div>
+            <form action="" class="col-6">
+                <div class="form-group">
+                    <input type="search" name="search" id="search" class="form-control" placeholder="search by name or email" value="{{request('search')}}">
+                </div>
+                <button class="btn btn-primary btn-sm">Search</button>
+            </form>
             <div>
                 <a href="{{ route('employees.create') }}" class="btn btn-primary">Register</a>
-                <a href="{{ route('employees.trash') }}" class="btn btn-danger">Go To Trash Bin</a>
-
+                <a href="{{ route('employees.trash') }}" class="btn btn-danger">Recently Deleted</a>
             </div>
         </div>
 
@@ -71,7 +77,7 @@
                         <td>
                             <a href="{{ route('employees.show',$employee->id) }}" class="btn btn-info btn-sm">View</a>
                             <a href="{{ route('employees.edit',$employee->id) }}" class="btn btn-primary btn-sm">Update</a>
-                            <a href="#" onclick="deleteEmployee({{ $employee->id }})" class="btn btn-danger btn-sm">Trash</a>
+                            <a href="#" onclick="deleteEmployee({{ $employee->id }})" class="btn btn-danger btn-sm">Delete</a>
 
                             <form id="employee-edit-action-{{ $employee->id }}" action="{{ route('employees.destroy',$employee->id) }}" method="post">
                                 @csrf
@@ -80,7 +86,7 @@
                         </td>
                     </tr>
                     @endforeach
-                    
+
                     @else
                     <tr>
                         <td colspan="6">Record Not Found</td>
@@ -94,15 +100,16 @@
         <div class="mt-5">
             {{ $employees->links() }}
         </div>
+
         <footer id="footer" style="margin-top: 20px;">
-        
+
             <p>© Copyright MABA</p>
-        
+
         </footer>
     </div>
-   
-    
-    
+
+
+
 </body>
 </html>
 <script>

@@ -31,16 +31,16 @@
                         <label for="name" class="form-label">Name</label>
                         <input type="text" name="name" id="name" placeholder="Enter Name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
                         @error('name')
-                            <p class="invalid-feedback">{{ $message }}</p>    
-                        @enderror                        
+                            <p class="invalid-feedback">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="text" name="email" id="email" placeholder="Enter Email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
                         @error('email')
-                            <p class="invalid-feedback">{{ $message }}</p>    
-                        @enderror      
+                            <p class="invalid-feedback">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
@@ -75,35 +75,35 @@
                         <label for="dob">D.O.B</label>
                         <input type="date" id="dob" name="dob" class="form-control @error('dob') is-invalid @enderror" value="{{ old('dob') }}">
                         @error('dob')
-                        <p class="invalid-feedback">{{ $message }}</p>    
+                        <p class="invalid-feedback">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control @error('password') is-invalid @enderror"> 
+                        <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control @error('password') is-invalid @enderror">
                         @error('password')
-                        <p class="invalid-feedback">{{ $message }}</p>    
+                        <p class="invalid-feedback">{{ $message }}</p>
                          @enderror
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="password_confirmation" class="form-label">Confirm Password</label>
-                        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" class="form-control @error('password_confirmation') is-invalid @enderror"> 
+                        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" class="form-control @error('password_confirmation') is-invalid @enderror">
                         @error('password_confirmation')
-                        <p class="invalid-feedback">{{ $message }}</p>    
+                        <p class="invalid-feedback">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="image" class="form-label"></label>
-                        <input type="file" name="image" id="image" class="@error('image') is-invalid @enderror">
+                        <label for="image" class="form-label">Upload Image</label>
+                        <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror">
 
                         @error('image')
-                            <p class="invalid-feedback">{{ $message }}</p>    
-                        @enderror     
+                            <p class="invalid-feedback">{{ $message }}</p>
+                        @enderror
                     </div>
-                
+
                 </div>
             </div>
 
@@ -111,10 +111,10 @@
 
         </form>
         <footer id="footer" style="margin-top: 20px;">
-        
+
             <p>© Copyright MABA</p>
-        
+
          </footer>
-    </div>  
+    </div>
 </body>
 </html>

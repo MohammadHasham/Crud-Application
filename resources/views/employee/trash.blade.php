@@ -68,11 +68,11 @@
                         <td>{{ $employee->gender }}</td>
                         <td>
                             <a href="{{ route('employees.restore',['id' => $employee->id]) }}" class="btn btn-success btn-sm">Restore</a>
-                            <a href="{{ route('employees.forcedelete',['id' => $employee->id]) }}" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="{{ route('employees.forcedelete',['id' => $employee->id]) }}" class="btn btn-danger btn-sm">Delete Permanently</a>
                         </td>
                     </tr>
                     @endforeach
-                    
+
                     @else
                     <tr>
                         <td colspan="6">Record Not Found</td>
@@ -83,15 +83,15 @@
             </div>
         </div>
 
-       
+
+
         <footer id="footer" style="margin-top: 20px;">
-        
+
             <p>© Copyright MABA</p>
-        
+
         </footer>
     </div>
-   
-    
-    
+
+
 </body>
 </html>
